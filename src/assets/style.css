@@ -2,6 +2,7 @@
 
 :root {
   --c-blue: #032541;
+  --c-light-blue: #024162;
   --f-family: "Roboto", sans-serif;
 }
 
@@ -15,4 +16,14 @@ body {
 
 .bg-blue {
   background-color: var(--c-blue);
+}
+
+.bg-light-blue {
+  background-color: var(--c-light-blue);
+}
+
+.search-dropdown {
+  max-height: 300px;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
