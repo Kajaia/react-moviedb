@@ -1,0 +1,18 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+:root {
+  --c-blue: #032541;
+  --f-family: "Roboto", sans-serif;
+}
+
+body {
+  font-family: var(--f-family);
+}
+
+.text-blue {
+  color: var(--c-blue);
+}
+
+.bg-blue {
+  background-color: var(--c-blue);
+}
