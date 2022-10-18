@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { searchMovies } from "../../services/ApiService";
 
 function Search() {
@@ -35,14 +35,12 @@ function Search() {
             {movies.length > 0 && (
               <div className="search-dropdown position-absolute bg-white rounded-3 w-100 mt-5 p-3 text-dark shadow">
                 {movies.map((movie) => (
-                  <>
-                    <div key={movie.id}>
-                      <i className="fas fa-film fa-sm me-1"></i>
-                      {movie.original_title}{" "}
-                      <small className="text-secondary">in Movies</small>
-                    </div>
+                  <React.Fragment key={movie.id}>
+                    <i className="fas fa-film fa-sm me-1"></i>
+                    {movie.original_title}{" "}
+                    <small className="text-secondary">in Movies</small>
                     <hr className="my-1" />
-                  </>
+                  </React.Fragment>
                 ))}
               </div>
             )}
