@@ -1,6 +1,7 @@
 import { format } from "date-fns";
 import { Link } from "react-router-dom";
 import useGetMovies from "../../hooks/useGetMovies";
+import LoadingSpinner from "../layout/LoadingSpinner";
 import MovieVote from "./MovieVote";
 
 const image_url = "https://image.tmdb.org/t/p/w300";
@@ -11,8 +12,12 @@ function MovieList(props) {
   return (
     <>
       <h2 className="fw-bold mt-4 mb-3">{props.title}</h2>
-      <div className={`${props.styles} mb-4`}>
-        {movies.length > 0 &&
+      <div
+        className={`${
+          movies.length > 0 ? props.styles : "d-flex justify-content-center"
+        } mb-4`}
+      >
+        {movies.length > 0 ? (
           movies.map((movie) => (
             <div key={movie.id} className="col-6 col-md-3 col-lg-2">
               <div className="card rounded-3 bg-transparent border-0">
@@ -35,7 +40,10 @@ function MovieList(props) {
                 </div>
               </div>
             </div>
-          ))}
+          ))
+        ) : (
+          <LoadingSpinner />
+        )}
       </div>
     </>
   );
