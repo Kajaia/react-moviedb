@@ -1,11 +1,13 @@
+import { Link } from "react-router-dom";
+
 function Navbar() {
   return (
     <>
       <nav className="navbar navbar-expand navbar-dark bg-blue shadow-sm">
         <div className="container py-1">
-          <a className="navbar-brand" href="#">
+          <Link to="/" className="navbar-brand">
             MovieDB
-          </a>
+          </Link>
           <button
             className="navbar-toggler"
             type="button"
@@ -20,9 +22,9 @@ function Navbar() {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav ms-auto mb-lg-0">
               <li className="nav-item">
-                <a className="nav-link" href="#">
+                <Link to="/movies" className="nav-link">
                   Movies
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="#">

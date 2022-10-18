@@ -1,4 +1,5 @@
 import { format } from "date-fns";
+import { Link } from "react-router-dom";
 import useGetMovies from "../../hooks/useGetMovies";
 import MovieVote from "./MovieVote";
 
@@ -10,7 +11,7 @@ function MovieList(props) {
   return (
     <>
       <h2 className="fw-bold mt-4 mb-3">{props.title}</h2>
-      <div className="d-flex movies-wrapper mb-4">
+      <div className={`${props.styles} mb-4`}>
         {movies.length > 0 &&
           movies.map((movie) => (
             <div key={movie.id} className="col-6 col-md-3 col-lg-2">
@@ -22,6 +23,10 @@ function MovieList(props) {
                   alt={movie.title}
                   loading="lazy"
                 />
+                <Link
+                  to={`/movie/${movie.id}`}
+                  className="stretched-link"
+                ></Link>
                 <div className="mt-2 mx-3">
                   <h6 className="fw-bold mb-0">{movie.title}</h6>
                   <small className="text-secondary">
