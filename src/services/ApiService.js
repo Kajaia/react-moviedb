@@ -16,4 +16,10 @@ function searchMovies(query) {
   });
 }
 
-export { searchMovies };
+function getMovies(endpoint) {
+  return instance.get(`/movie/${endpoint}`, {
+    params: { api_key: api_key },
+  });
+}
+
+export { searchMovies, getMovies };
