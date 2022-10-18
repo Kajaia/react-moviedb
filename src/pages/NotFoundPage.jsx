@@ -1,6 +1,6 @@
 import { Link, useRouteError } from "react-router-dom";
 
-function NotFound() {
+function NotFoundPage() {
   const error = useRouteError();
 
   return (
@@ -17,4 +17,4 @@ function NotFound() {
   );
 }
 
-export default NotFound;
+export default NotFoundPage;
