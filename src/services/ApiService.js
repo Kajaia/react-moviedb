@@ -22,4 +22,10 @@ function getMovies(endpoint) {
   });
 }
 
-export { searchMovies, getMovies };
+function getMovieDetails(id) {
+  return instance.get(`/movie/${id}`, {
+    params: { api_key: api_key },
+  });
+}
+
+export { searchMovies, getMovies, getMovieDetails };
