@@ -28,3 +28,9 @@ body {
   overflow-y: auto;
   z-index: 1;
 }
+
+.movies-wrapper {
+  overflow-y: hidden;
+  overflow-x: auto;
+  gap: 0 20px;
+}

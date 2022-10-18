@@ -11,7 +11,7 @@ function MovieVote({ vote }) {
           : "warning text-dark"
       } rounded-pill shadow-sm position-absolute m-2`}
     >
-      {percentage}%
+      {percentage.toFixed(0)}%
     </span>
   );
 }
