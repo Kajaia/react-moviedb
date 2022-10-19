@@ -1,13 +1,19 @@
-import { useParams } from "react-router-dom";
 import MovieDetails from "../components/movies/MovieDetails";
 import ErrorBoundary from "../components/ErrorBoundary";
+import { getMovieDetails } from "../services/ApiService";
+import { useLoaderData } from "react-router-dom";
+
+export const loader = async ({ params }) => {
+  const res = await getMovieDetails(params.id);
+  return res.data;
+};
 
 function MovieDetailsPage() {
-  const params = useParams();
+  const movie = useLoaderData();
 
   return (
     <ErrorBoundary>
-      <MovieDetails id={params.id} />
+      <MovieDetails movie={movie} />
     </ErrorBoundary>
   );
 }

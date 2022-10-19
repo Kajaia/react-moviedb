@@ -1,11 +1,8 @@
-import useGetMovieDetails from "../../hooks/useGetMovieDetails";
 import MovieVote from "./MovieVote";
 
 const image_url = "https://image.tmdb.org/t/p/w400";
 
-function MovieDetails(props) {
-  const movie = useGetMovieDetails(props.id);
-
+function MovieDetails({ movie }) {
   return (
     <div className="bg-light-blue text-white">
       <div className="container py-5">

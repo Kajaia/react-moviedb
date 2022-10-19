@@ -1,7 +1,9 @@
 import { createBrowserRouter } from "react-router-dom";
 import App from "../App";
 import HomePage from "../pages/HomePage";
-import MovieDetailsPage from "../pages/MovieDetailsPage";
+import MovieDetailsPage, {
+  loader as loadMovieDetails,
+} from "../pages/MovieDetailsPage";
 import NotFoundPage from "../pages/NotFoundPage";
 import PopularMoviesPage from "../pages/PopularMoviesPage";
 
@@ -18,6 +20,7 @@ const router = createBrowserRouter([
       {
         path: "movies/:id",
         element: <MovieDetailsPage />,
+        loader: loadMovieDetails,
       },
       {
         path: "movies",
