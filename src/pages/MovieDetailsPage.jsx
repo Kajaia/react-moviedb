@@ -1,19 +1,25 @@
 import MovieDetails from "../components/movies/MovieDetails";
 import ErrorBoundary from "../components/ErrorBoundary";
-import { getMovieDetails } from "../services/ApiService";
+import { getMovieDetails, getMovieOtherData } from "../services/ApiService";
 import { useLoaderData } from "react-router-dom";
 
 export const loader = async ({ params }) => {
-  const res = await getMovieDetails(params.id);
-  return res.data;
+  const details = await getMovieDetails(params.id);
+  const credits = await getMovieOtherData(params.id, "credits");
+  const images = await getMovieOtherData(params.id, "images");
+  return {
+    details: details.data,
+    credits: credits.data.cast,
+    images: images.data.backdrops,
+  };
 };
 
 function MovieDetailsPage() {
-  const movie = useLoaderData();
+  const data = useLoaderData();
 
   return (
     <ErrorBoundary>
-      <MovieDetails movie={movie} />
+      <MovieDetails data={data} />
     </ErrorBoundary>
   );
 }

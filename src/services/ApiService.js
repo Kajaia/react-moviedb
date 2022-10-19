@@ -25,4 +25,9 @@ const getMovieDetails = (id) =>
     params: { api_key },
   });
 
-export { searchMovies, getMovies, getMovieDetails };
+const getMovieOtherData = (id, endpoint) =>
+  instance.get(`/movie/${id}/${endpoint}`, {
+    params: { api_key },
+  });
+
+export { searchMovies, getMovies, getMovieDetails, getMovieOtherData };

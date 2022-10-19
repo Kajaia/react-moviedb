@@ -1,6 +1,8 @@
 function MovieVote({ vote }) {
   const percentage = vote * 10;
 
+  if (!vote) return null;
+
   return (
     <span
       className={`badge bg-${

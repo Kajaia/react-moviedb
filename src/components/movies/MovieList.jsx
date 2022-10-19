@@ -4,8 +4,6 @@ import useGetMovies from "../../hooks/useGetMovies";
 import LoadingSpinner from "../layout/LoadingSpinner";
 import MovieVote from "./MovieVote";
 
-const image_url = "https://image.tmdb.org/t/p/w300";
-
 function MovieList(props) {
   const movies = useGetMovies(props.endpoint);
 
@@ -24,7 +22,7 @@ function MovieList(props) {
                 <MovieVote vote={movie.vote_average} />
                 <img
                   className="rounded-3"
-                  src={`${image_url}${movie.poster_path}`}
+                  src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
                   alt={movie.title}
                   loading="lazy"
                 />
