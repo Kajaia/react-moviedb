@@ -1,5 +1,5 @@
 import MovieDetails from "../components/movies/MovieDetails";
-import ErrorBoundary from "../components/ErrorBoundary";
+import ErrorBoundary from "../components/others/ErrorBoundary";
 import { getMovieDetails, getMovieOtherData } from "../services/ApiService";
 import { useLoaderData } from "react-router-dom";
 

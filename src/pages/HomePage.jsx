@@ -1,4 +1,4 @@
-import ErrorBoundary from "../components/ErrorBoundary";
+import ErrorBoundary from "../components/others/ErrorBoundary";
 import MovieList from "../components/movies/MovieList";
 import Search from "../components/others/Search";
 

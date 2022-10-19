@@ -1,5 +1,5 @@
 import MovieList from "../components/movies/MovieList";
-import ErrorBoundary from "../components/ErrorBoundary";
+import ErrorBoundary from "../components/others/ErrorBoundary";
 
 function PopularMoviesPage() {
   return (
