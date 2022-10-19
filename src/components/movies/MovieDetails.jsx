@@ -1,4 +1,5 @@
 import MovieCast from "./MovieCast";
+import MovieImages from "./MovieImages";
 import MovieVote from "./MovieVote";
 
 function MovieDetails({ data }) {
@@ -39,6 +40,7 @@ function MovieDetails({ data }) {
         </div>
       </div>
       <MovieCast credits={data.credits} />
+      <MovieImages images={data.images} />
     </>
   );
 }
