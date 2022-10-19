@@ -10,22 +10,19 @@ const instance = axios.create({
 
 const api_key = "7580044e2306d04aa11e9d8bc46c01d3";
 
-function searchMovies(query) {
-  return instance.get("/search/movie", {
-    params: { api_key: api_key, query: query },
+const searchMovies = (query) =>
+  instance.get("/search/movie", {
+    params: { api_key, query },
   });
-}
 
-function getMovies(endpoint) {
-  return instance.get(`/movie/${endpoint}`, {
-    params: { api_key: api_key },
+const getMovies = (endpoint) =>
+  instance.get(`/movie/${endpoint}`, {
+    params: { api_key },
   });
-}
 
-function getMovieDetails(id) {
-  return instance.get(`/movie/${id}`, {
-    params: { api_key: api_key },
+const getMovieDetails = (id) =>
+  instance.get(`/movie/${id}`, {
+    params: { api_key },
   });
-}
 
 export { searchMovies, getMovies, getMovieDetails };
