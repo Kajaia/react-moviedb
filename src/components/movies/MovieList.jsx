@@ -29,7 +29,7 @@ function MovieList(props) {
                   loading="lazy"
                 />
                 <Link
-                  to={`/movie/${movie.id}`}
+                  to={`/movies/${movie.id}`}
                   className="stretched-link"
                 ></Link>
                 <div className="mt-2 mx-3">

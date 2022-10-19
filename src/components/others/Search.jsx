@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { searchMovies } from "../../services/ApiService";
 
 function Search() {
@@ -33,14 +34,19 @@ function Search() {
               placeholder="Search for a movie, tv show, person..."
             />
             {movies.length > 0 && (
-              <div className="search-dropdown position-absolute bg-white rounded-3 w-100 mt-5 p-3 text-dark shadow">
+              <div className="search-dropdown position-absolute bg-white rounded-3 w-100 mt-5 p-2 text-dark shadow row">
                 {movies.map((movie) => (
-                  <React.Fragment key={movie.id}>
-                    <i className="fas fa-film fa-sm me-1"></i>
-                    {movie.original_title}{" "}
+                  <div key={movie.id} className="col-12">
+                    <Link
+                      to={`/movies/${movie.id}`}
+                      className="text-dark text-decoration-none"
+                    >
+                      <i className="fas fa-film fa-sm me-1"></i>
+                      {movie.original_title}{" "}
+                    </Link>
                     <small className="text-secondary">in Movies</small>
                     <hr className="my-1" />
-                  </React.Fragment>
+                  </div>
                 ))}
               </div>
             )}
