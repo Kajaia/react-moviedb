@@ -1,6 +1,6 @@
 import ErrorBoundary from "../components/others/ErrorBoundary";
 import MovieList from "../components/movies/MovieList";
-import Search from "../components/others/Search";
+import Search from "../components/others/search/Search";
 
 function HomePage() {
   return (
