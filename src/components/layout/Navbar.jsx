@@ -22,14 +22,14 @@ function Navbar() {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav ms-auto mb-lg-0">
               <li className="nav-item">
-                <Link to="/movies" className="nav-link">
+                <Link to="/movie" className="nav-link">
                   Movies
                 </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
+                <Link to="/tv" className="nav-link">
                   TV Shows
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="#">

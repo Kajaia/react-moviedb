@@ -6,6 +6,7 @@ import MovieDetailsPage, {
 } from "../pages/MovieDetailsPage";
 import NotFoundPage from "../pages/NotFoundPage";
 import PopularMoviesPage from "../pages/PopularMoviesPage";
+import PopularShowsPage from "../pages/PopularShowsPage";
 
 const router = createBrowserRouter([
   {
@@ -18,13 +19,22 @@ const router = createBrowserRouter([
         element: <HomePage />,
       },
       {
-        path: "movies/:id",
+        path: "movie",
+        element: <PopularMoviesPage />,
+      },
+      {
+        path: "movie/:id",
         element: <MovieDetailsPage />,
         loader: loadMovieDetails,
       },
       {
-        path: "movies",
-        element: <PopularMoviesPage />,
+        path: "tv",
+        element: <PopularShowsPage />,
+      },
+      {
+        path: "tv/:id",
+        element: <MovieDetailsPage />,
+        loader: loadMovieDetails,
       },
     ],
   },

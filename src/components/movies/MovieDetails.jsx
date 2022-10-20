@@ -1,8 +1,12 @@
+import { useLocation } from "react-router-dom";
 import MovieCast from "./MovieCast";
 import MovieImages from "./MovieImages";
 import MovieVote from "./MovieVote";
 
 function MovieDetails({ data }) {
+  const { pathname } = useLocation();
+  const category = pathname.replace(/[0-9]/g, "").replaceAll("/", "");
+
   return (
     <>
       <div className="bg-light-blue text-white">
@@ -15,16 +19,25 @@ function MovieDetails({ data }) {
                   width="100%"
                   className="rounded-3"
                   src={`https://image.tmdb.org/t/p/w400${data.details.poster_path}`}
-                  alt={data.details.title}
+                  alt={
+                    category === "movie"
+                      ? data.details.title
+                      : data.details.name
+                  }
                 />
               </div>
             )}
             <div className="col-12 col-md-8 col-lg-9">
-              <h1 className="fs-2 fw-bold">{data.details.title}</h1>
+              <h1 className="fs-2 fw-bold">
+                {category === "movie" ? data.details.title : data.details.name}
+              </h1>
               <div className="mb-3">
                 {data.details.release_date && data.details.release_date}
+                {data.details.first_air_date && data.details.first_air_date}
                 {" • "}
                 {data.details.runtime && `${data.details.runtime} min`}
+                {data.details.episode_run_time &&
+                  `${data.details.episode_run_time[0]} min`}
               </div>
               {data.details.tagline && (
                 <i className="text-secondary">{data.details.tagline}</i>

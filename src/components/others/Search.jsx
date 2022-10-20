@@ -38,7 +38,7 @@ function Search() {
                 {movies.map((movie) => (
                   <div key={movie.id} className="col-12">
                     <Link
-                      to={`/movies/${movie.id}`}
+                      to={`/movie/${movie.id}`}
                       className="text-dark text-decoration-none"
                     >
                       <i className="fas fa-film fa-sm me-1"></i>

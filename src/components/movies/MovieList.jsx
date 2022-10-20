@@ -13,7 +13,7 @@ function MovieList(props) {
       <div
         className={`${
           movies.length > 0 ? props.styles : "d-flex justify-content-center"
-        } mb-4`}
+        } mb-4 g-4`}
       >
         {movies.length > 0 ? (
           movies.map((movie) => (
@@ -23,17 +23,34 @@ function MovieList(props) {
                 <img
                   className="rounded-3"
                   src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
-                  alt={movie.title}
+                  alt={
+                    props.category === "movie"
+                      ? movie.title
+                      : movie.original_name
+                  }
                   loading="lazy"
                 />
                 <Link
-                  to={`/movies/${movie.id}`}
+                  to={`/${props.category === "movie" ? "movie" : "tv"}/${
+                    movie.id
+                  }`}
                   className="stretched-link"
                 ></Link>
                 <div className="mt-2 mx-3">
-                  <h6 className="fw-bold mb-0">{movie.title}</h6>
+                  <h6 className="fw-bold mb-0">
+                    {props.category === "movie"
+                      ? movie.title
+                      : movie.original_name}
+                  </h6>
                   <small className="text-secondary">
-                    {format(new Date(movie.release_date), "LLL d, Y")}
+                    {format(
+                      new Date(
+                        props.category === "movie"
+                          ? movie.release_date
+                          : movie.first_air_date
+                      ),
+                      "LLL d, Y"
+                    )}
                   </small>
                 </div>
               </div>
