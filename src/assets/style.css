@@ -34,3 +34,7 @@ body {
   overflow-x: auto;
   gap: 0 20px;
 }
+
+.cover {
+  object-fit: cover;
+}

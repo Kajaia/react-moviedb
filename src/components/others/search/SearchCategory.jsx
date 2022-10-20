@@ -4,20 +4,29 @@ function SearchCategory(props) {
   return (
     <div className="col-12">
       <Link
-        to={`/${props.category}/${props.movie.id}`}
+        to={`/${props.category}/${props.data.id}`}
         className="text-dark text-decoration-none"
       >
         <i
           className={`fas fa-${
-            props.category === "movie" ? "film" : "tv"
+            props.category === "movie"
+              ? "film"
+              : props.category === "tv"
+              ? "tv"
+              : "user"
           } fa-sm me-1`}
         ></i>
         {props.category === "movie"
-          ? props.movie.original_title
-          : props.movie.name}{" "}
+          ? props.data.original_title
+          : props.data.name}{" "}
       </Link>
       <small className="text-secondary">
-        in {props.category === "movie" ? "Movies" : "TV"}
+        in{" "}
+        {props.category === "movie"
+          ? "Movies"
+          : props.category === "tv"
+          ? "TV"
+          : "Persons"}
       </small>
       <hr className="my-1" />
     </div>

@@ -5,7 +5,11 @@ import MovieDetailsPage, {
   loader as loadMovieDetails,
 } from "../pages/MovieDetailsPage";
 import NotFoundPage from "../pages/NotFoundPage";
+import PersonDetailsPage, {
+  loader as loadPersonDetails,
+} from "../pages/PersonDetailsPage";
 import PopularMoviesPage from "../pages/PopularMoviesPage";
+import PopularPersonsPage from "../pages/PopularPersonsPage";
 import PopularShowsPage from "../pages/PopularShowsPage";
 
 const router = createBrowserRouter([
@@ -35,6 +39,15 @@ const router = createBrowserRouter([
         path: "tv/:id",
         element: <MovieDetailsPage />,
         loader: loadMovieDetails,
+      },
+      {
+        path: "person",
+        element: <PopularPersonsPage />,
+      },
+      {
+        path: "person/:id",
+        element: <PersonDetailsPage />,
+        loader: loadPersonDetails,
       },
     ],
   },

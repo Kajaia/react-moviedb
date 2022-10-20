@@ -21,6 +21,14 @@ function Search() {
     return () => setShows([]);
   }, [query]);
 
+  const [persons, setPersons] = useState([]);
+  useEffect(() => {
+    if (query)
+      searchData("person", query).then((res) => setPersons(res.data.results));
+
+    return () => setShows([]);
+  }, [query]);
+
   let searchResults;
 
   if (movies.length || shows.length) {
@@ -28,11 +36,15 @@ function Search() {
       <div className="search-dropdown position-absolute bg-white rounded-3 w-100 mt-5 p-2 text-dark shadow row">
         {movies.length > 0 &&
           movies.map((movie) => (
-            <SearchCategory key={movie.id} movie={movie} category="movie" />
+            <SearchCategory key={movie.id} data={movie} category="movie" />
           ))}
         {shows.length > 0 &&
           shows.map((show) => (
-            <SearchCategory key={show.id} movie={show} category="tv" />
+            <SearchCategory key={show.id} data={show} category="tv" />
+          ))}
+        {persons.length > 0 &&
+          persons.map((person) => (
+            <SearchCategory key={person.id} data={person} category="person" />
           ))}
       </div>
     );

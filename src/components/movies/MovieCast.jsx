@@ -10,7 +10,9 @@ function MovieCast({ credits }) {
             <div key={credit.id} className="col-6 col-md-3 col-lg-2">
               <div className="card rounded-3 bg-transparent border-0">
                 <img
-                  className="rounded-3 "
+                  width="100%"
+                  height="248px"
+                  className="rounded-3 cover"
                   src={
                     credit.profile_path
                       ? `https://image.tmdb.org/t/p/w300${credit.profile_path}`
