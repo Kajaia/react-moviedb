@@ -22,7 +22,7 @@ function MovieCast({ credits }) {
                   loading="lazy"
                 />
                 <Link
-                  to={`/people/${credit.id}`}
+                  to={`/person/${credit.id}`}
                   className="stretched-link"
                 ></Link>
                 <div className="mt-2 mx-3">
