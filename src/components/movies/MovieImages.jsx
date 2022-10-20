@@ -1,11 +1,11 @@
 function MovieImages({ images }) {
   return (
     <>
-      <div className="container">
-        <h2 className="fw-bold mt-4 mb-3">Gallery</h2>
-        <div className="d-flex movies-wrapper g-3">
-          {images.length > 0 &&
-            images.map((image, index) => (
+      {images.length > 0 && (
+        <div className="container">
+          <h2 className="fw-bold mt-4 mb-3">Gallery</h2>
+          <div className="d-flex movies-wrapper g-3">
+            {images.map((image, index) => (
               <div key={index} className="col-6 col-md-3 col-lg-2">
                 <div className="card rounded-3 bg-transparent border-0">
                   <img
@@ -17,8 +17,9 @@ function MovieImages({ images }) {
                 </div>
               </div>
             ))}
+          </div>
         </div>
-      </div>
+      )}
     </>
   );
 }
