@@ -1,4 +1,5 @@
 import MovieImages from "../movies/MovieImages";
+import PersonMovies from "./PersonMovies";
 
 function PersonDetails({ data }) {
   return (
@@ -33,6 +34,12 @@ function PersonDetails({ data }) {
           </div>
         </div>
       </div>
+      {data.movies.length > 0 && (
+        <PersonMovies title="Movies" category="movie" data={data.movies} />
+      )}
+      {data.shows.length > 0 && (
+        <PersonMovies title="TV Shows" category="tv" data={data.shows} />
+      )}
       {data.images.length > 0 && <MovieImages images={data.images} />}
     </>
   );
