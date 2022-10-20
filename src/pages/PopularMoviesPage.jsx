@@ -7,8 +7,9 @@ function PopularMoviesPage() {
       <ErrorBoundary>
         <MovieList
           title="Popular Movies"
-          endpoint="popular"
           styles="row justify-content-center"
+          category="movie"
+          endpoint="popular"
         />
       </ErrorBoundary>
     </div>

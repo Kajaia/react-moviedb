@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { searchMovies } from "../../services/ApiService";
+import { searchData } from "../../services/ApiService";
 
 function Search() {
   const [query, setQuery] = useState("");
@@ -8,7 +8,7 @@ function Search() {
 
   useEffect(() => {
     if (query) {
-      searchMovies(query).then((res) => {
+      searchData("movie", query).then((res) => {
         setMovies(res.data.results);
       });
     }

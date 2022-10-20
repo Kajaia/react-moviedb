@@ -1,11 +1,11 @@
 import { format } from "date-fns";
 import { Link } from "react-router-dom";
-import useGetMovies from "../../hooks/useGetMovies";
+import useGetData from "../../hooks/useGetData";
 import LoadingSpinner from "../layout/LoadingSpinner";
 import MovieVote from "./MovieVote";
 
 function MovieList(props) {
-  const movies = useGetMovies(props.endpoint);
+  const movies = useGetData(props.category, props.endpoint);
 
   return (
     <>

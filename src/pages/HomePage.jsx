@@ -12,8 +12,9 @@ function HomePage() {
         <ErrorBoundary>
           <MovieList
             title="What's Popular"
-            endpoint="popular"
             styles="d-flex movies-wrapper"
+            category="movie"
+            endpoint="popular"
           />
         </ErrorBoundary>
       </div>
@@ -22,8 +23,9 @@ function HomePage() {
           <ErrorBoundary>
             <MovieList
               title="Upcoming movies"
-              endpoint="upcoming"
               styles="d-flex movies-wrapper"
+              category="movie"
+              endpoint="upcoming"
             />
           </ErrorBoundary>
         </div>
@@ -32,8 +34,9 @@ function HomePage() {
         <ErrorBoundary>
           <MovieList
             title="Top Rated"
-            endpoint="top_rated"
             styles="d-flex movies-wrapper"
+            category="movie"
+            endpoint="top_rated"
           />
         </ErrorBoundary>
       </div>

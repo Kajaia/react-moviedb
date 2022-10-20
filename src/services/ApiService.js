@@ -10,24 +10,24 @@ const instance = axios.create({
 
 const api_key = "7580044e2306d04aa11e9d8bc46c01d3";
 
-const searchMovies = (query) =>
-  instance.get("/search/movie", {
+const searchData = (category, query) =>
+  instance.get(`/search/${category}`, {
     params: { api_key, query },
   });
 
-const getMovies = (endpoint) =>
-  instance.get(`/movie/${endpoint}`, {
+const getData = (category, endpoint) =>
+  instance.get(`/${category}/${endpoint}`, {
     params: { api_key },
   });
 
-const getMovieDetails = (id) =>
-  instance.get(`/movie/${id}`, {
+const getDetails = (category, id) =>
+  instance.get(`/${category}/${id}`, {
     params: { api_key },
   });
 
-const getMovieOtherData = (id, endpoint) =>
-  instance.get(`/movie/${id}/${endpoint}`, {
+const getOtherData = (category, id, endpoint) =>
+  instance.get(`/${category}/${id}/${endpoint}`, {
     params: { api_key },
   });
 
-export { searchMovies, getMovies, getMovieDetails, getMovieOtherData };
+export { searchData, getData, getDetails, getOtherData };

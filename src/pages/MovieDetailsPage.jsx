@@ -1,12 +1,12 @@
 import MovieDetails from "../components/movies/MovieDetails";
 import ErrorBoundary from "../components/others/ErrorBoundary";
-import { getMovieDetails, getMovieOtherData } from "../services/ApiService";
+import { getDetails, getOtherData } from "../services/ApiService";
 import { useLoaderData } from "react-router-dom";
 
 export const loader = async ({ params }) => {
-  const details = await getMovieDetails(params.id);
-  const credits = await getMovieOtherData(params.id, "credits");
-  const images = await getMovieOtherData(params.id, "images");
+  const details = await getDetails("movie", params.id);
+  const credits = await getOtherData("movie", params.id, "credits");
+  const images = await getOtherData("movie", params.id, "images");
   return {
     details: details.data,
     credits: credits.data.cast,
