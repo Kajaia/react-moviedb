@@ -39,8 +39,8 @@ function MovieDetails({ data }) {
           </div>
         </div>
       </div>
-      <MovieCast credits={data.credits} />
-      <MovieImages images={data.images} />
+      {data.credits.length > 0 && <MovieCast credits={data.credits} />}
+      {data.images.length > 0 && <MovieImages images={data.images} />}
     </>
   );
 }
