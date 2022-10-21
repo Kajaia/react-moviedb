@@ -77,7 +77,7 @@ function MovieDetails({ data }) {
           width="100%"
           height="400px"
           src={`https://www.youtube.com/embed/${data.videos[0].key}`}
-          title="YouTube video player"
+          title={category === "movie" ? data.details.title : data.details.name}
           frameBorder="0"
           allowFullScreen
         ></iframe>
