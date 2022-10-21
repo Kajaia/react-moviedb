@@ -7,17 +7,18 @@ function Modal(props) {
     <>
       <div className="overlay"></div>
       <div className="portal-modal">
-        <div className="card rounded-3">
+        <div className="card bg-light-blue rounded-3">
           <div className="card-body">
             <div className="d-flex align-items-center justify-content-between">
-              <h5 className="fw-bold">Watch "{props.title}" trailer</h5>
-              <button
-                className="btn btn-secondary rounded-3"
+              <h5 className="fw-bold text-white mb-0">
+                Watch "{props.title}" trailer
+              </h5>
+              <i
+                className="fas fa-times fa-lg text-white cursor-pointer"
                 onClick={props.close}
-              >
-                <i className="fas fa-times"></i>
-              </button>
+              ></i>
             </div>
+            <hr className="text-secondary" />
             <div className="mt-2">{props.children}</div>
           </div>
         </div>

@@ -59,3 +59,7 @@ body {
   max-width: 90%;
   z-index: 2;
 }
+
+.cursor-pointer {
+  cursor: pointer;
+}
