@@ -1,10 +1,13 @@
+import { useState } from "react";
 import { useLocation } from "react-router-dom";
+import Modal from "../../portals/Model";
 import MovieCast from "./MovieCast";
 import MovieImages from "./MovieImages";
 import MovieVote from "./MovieVote";
 
 function MovieDetails({ data }) {
   const { pathname } = useLocation();
+  const [isOpen, setIsOpen] = useState(false);
   const category = pathname.replace(/[0-9]/g, "").replaceAll("/", "");
 
   return (
@@ -48,12 +51,37 @@ function MovieDetails({ data }) {
                   <p>{data.details.overview}</p>
                 </div>
               )}
+              {data.videos.length > 0 && (
+                <div className="mt-4">
+                  <button
+                    onClick={() => setIsOpen(true)}
+                    className="btn btn-warning rounded-3 py-2 px-4 shadow-sm text-blue"
+                  >
+                    <i className="fas fa-play me-2"></i>
+                    Watch Trailer
+                  </button>
+                </div>
+              )}
             </div>
           </div>
         </div>
       </div>
       {data.credits.length > 0 && <MovieCast credits={data.credits} />}
       {data.images.length > 0 && <MovieImages images={data.images} />}
+      <Modal
+        isOpen={isOpen}
+        close={() => setIsOpen(false)}
+        title={category === "movie" ? data.details.title : data.details.name}
+      >
+        <iframe
+          width="100%"
+          height="400px"
+          src={`https://www.youtube.com/embed/${data.videos[0].key}`}
+          title="YouTube video player"
+          frameBorder="0"
+          allowFullScreen
+        ></iframe>
+      </Modal>
     </>
   );
 }

@@ -9,10 +9,12 @@ export const loader = async ({ request, params }) => {
   const details = await getDetails(category, params.id);
   const credits = await getOtherData(category, params.id, "credits");
   const images = await getOtherData(category, params.id, "images");
+  const videos = await getOtherData(category, params.id, "videos");
   return {
     details: details.data,
     credits: credits.data.cast,
     images: images.data.backdrops,
+    videos: videos.data.results,
   };
 };
 
