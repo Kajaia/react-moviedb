@@ -30,8 +30,7 @@ function Search() {
   }, [query]);
 
   let searchResults;
-
-  if (movies.length || shows.length) {
+  if (movies.length || shows.length || persons.length) {
     searchResults = (
       <div className="search-dropdown position-absolute bg-white rounded-3 w-100 mt-5 p-2 text-dark shadow row">
         {movies.length > 0 &&
@@ -52,7 +51,7 @@ function Search() {
 
   return (
     <>
-      <div className=" bg-light-blue text-white">
+      <div className="bg-light-blue text-white">
         <div className="container py-5">
           <h1 className="fw-bold mb-0">Welcome.</h1>
           <p className="lead">
