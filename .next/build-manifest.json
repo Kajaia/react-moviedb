@@ -20,6 +20,11 @@
       "static/chunks/main.js",
       "static/chunks/pages/index.js"
     ],
+    "/404": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/404.js"
+    ],
     "/_app": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
@@ -35,20 +40,10 @@
       "static/chunks/main.js",
       "static/chunks/pages/movie.js"
     ],
-    "/movie/[id]": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/movie/[id].js"
-    ],
     "/person": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
       "static/chunks/pages/person.js"
-    ],
-    "/person/[id]": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/person/[id].js"
     ],
     "/tv": [
       "static/chunks/webpack.js",
