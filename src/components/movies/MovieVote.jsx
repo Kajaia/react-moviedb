@@ -5,6 +5,7 @@ function MovieVote({ vote }) {
 
   return (
     <span
+      style={{ zIndex: 1 }}
       className={`badge bg-${
         percentage < 50
           ? "danger text-white"

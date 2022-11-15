@@ -1,4 +1,5 @@
 import { format } from "date-fns";
+import Image from "next/image";
 import Link from "next/link";
 import LoadingSpinner from "../layout/LoadingSpinner";
 import MovieVote from "./MovieVote";
@@ -19,16 +20,25 @@ function MovieList(props) {
             <div key={movie.id} className="col-6 col-md-3 col-lg-2">
               <div className="card rounded-3 bg-transparent border-0">
                 <MovieVote vote={movie.vote_average} />
-                <img
-                  className="rounded-3"
-                  src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
-                  alt={
-                    props.category === "movie"
-                      ? movie.title
-                      : movie.original_name
-                  }
-                  loading="lazy"
-                />
+                <div
+                  style={{
+                    width: "100%",
+                    height: "248px",
+                    position: "relative",
+                  }}
+                >
+                  <Image
+                    className="rounded-3"
+                    src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
+                    alt={
+                      props.category === "movie"
+                        ? movie.title
+                        : movie.original_name
+                    }
+                    layout="fill"
+                    objectFit="cover"
+                  />
+                </div>
                 <Link
                   href={`/${props.category === "movie" ? "movie" : "tv"}/${
                     movie.id

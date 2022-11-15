@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 function MovieCast({ credits }) {
@@ -9,18 +10,24 @@ function MovieCast({ credits }) {
           credits.map((credit) => (
             <div key={credit.id} className="col-6 col-md-3 col-lg-2">
               <div className="card rounded-3 bg-transparent border-0">
-                <img
-                  width="100%"
-                  height="248px"
-                  className="rounded-3 cover"
-                  src={
-                    credit.profile_path
-                      ? `https://image.tmdb.org/t/p/w300${credit.profile_path}`
-                      : `https://ui-avatars.com/api/?background=024162&color=fff&size=256&name=${credit.name}`
-                  }
-                  alt={credit.name}
-                  loading="lazy"
-                />
+                <div
+                  style={{
+                    width: "100%",
+                    height: "248px",
+                    position: "relative",
+                  }}
+                >
+                  <Image
+                    className="rounded-3 cover"
+                    src={
+                      credit.profile_path
+                        ? `https://image.tmdb.org/t/p/w300${credit.profile_path}`
+                        : `https://ui-avatars.com/api/?background=024162&color=fff&size=256&name=${credit.name}`
+                    }
+                    alt={credit.name}
+                    layout="fill"
+                  />
+                </div>
                 <Link
                   href={`/person/${credit.id}`}
                   className="stretched-link"

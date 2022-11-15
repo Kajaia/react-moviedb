@@ -1,5 +1,6 @@
+import Image from "next/image";
 import { useState } from "react";
-import Modal from "../../portals/Model";
+import Modal from "../../portals/Modal";
 import MovieCast from "../movies/MovieCast";
 import MovieImages from "../movies/MovieImages";
 import MovieVote from "../movies/MovieVote";
@@ -15,12 +16,21 @@ function TvDetails({ data }) {
             {data?.details?.poster_path && (
               <div className="col-12 col-md-4 col-lg-3">
                 <MovieVote vote={data?.details?.vote_average} />
-                <img
-                  width="100%"
-                  className="rounded-3"
-                  src={`https://image.tmdb.org/t/p/w400${data?.details?.poster_path}`}
-                  alt={data?.details?.name}
-                />
+                <div
+                  style={{
+                    width: "100%",
+                    height: "380px",
+                    position: "relative",
+                  }}
+                >
+                  <Image
+                    className="rounded-3"
+                    src={`https://image.tmdb.org/t/p/w400${data?.details?.poster_path}`}
+                    alt={data?.details?.title}
+                    layout="fill"
+                    objectFit="cover"
+                  />
+                </div>
               </div>
             )}
             <div className="col-12 col-md-8 col-lg-9">

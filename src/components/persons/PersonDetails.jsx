@@ -1,3 +1,4 @@
+import Image from "next/image";
 import MovieImages from "../movies/MovieImages";
 import PersonMovies from "./PersonMovies";
 
@@ -9,12 +10,21 @@ function PersonDetails({ data }) {
           <div className="row g-4">
             {data?.details?.profile_path && (
               <div className="col-12 col-md-4 col-lg-3">
-                <img
-                  width="100%"
-                  className="rounded-3"
-                  src={`https://image.tmdb.org/t/p/w400${data?.details?.profile_path}`}
-                  alt={data?.details?.name}
-                />
+                <div
+                  style={{
+                    width: "100%",
+                    height: "380px",
+                    position: "relative",
+                  }}
+                >
+                  <Image
+                    className="rounded-3"
+                    src={`https://image.tmdb.org/t/p/w400${data?.details?.profile_path}`}
+                    alt={data?.details?.name}
+                    layout="fill"
+                    objectFit="cover"
+                  />
+                </div>
               </div>
             )}
             <div className="col-12 col-md-8 col-lg-9">

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import LoadingSpinner from "../layout/LoadingSpinner";
 
@@ -12,18 +13,25 @@ function PersonList(props) {
           persons.map((person) => (
             <div key={person.id} className="col-6 col-md-3 col-lg-2">
               <div className="card rounded-3 bg-transparent border-0">
-                <img
-                  width="100%"
-                  height="248px"
-                  className="rounded-3 cover"
-                  src={
-                    person.profile_path
-                      ? `https://image.tmdb.org/t/p/w300${person.profile_path}`
-                      : `https://ui-avatars.com/api/?background=024162&color=fff&size=256&name=${person.name}`
-                  }
-                  alt={person.name}
-                  loading="lazy"
-                />
+                <div
+                  style={{
+                    width: "100%",
+                    height: "248px",
+                    position: "relative",
+                  }}
+                >
+                  <Image
+                    className="rounded-3 cover"
+                    src={
+                      person.profile_path
+                        ? `https://image.tmdb.org/t/p/w300${person.profile_path}`
+                        : `https://ui-avatars.com/api/?background=024162&color=fff&size=256&name=${person.name}`
+                    }
+                    alt={person.name}
+                    layout="fill"
+                    objectFit="cover"
+                  />
+                </div>
                 <Link
                   href={`/person/${person.id}`}
                   className="stretched-link"
