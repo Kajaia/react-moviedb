@@ -1,34 +1,48 @@
 import ErrorBoundary from "../../components/others/ErrorBoundary";
-import { getDetails, getOtherData } from "../../services/ApiService";
-import { useLoaderData } from "react-router-dom";
+import { getData, getDetails, getOtherData } from "../../services/ApiService";
 import PersonDetails from "../../components/persons/PersonDetails";
 import Layout from "../../components/layout";
 
-export const loader = async ({ request, params }) => {
-  const { pathname } = new URL(request.url);
-  const category = pathname.replace(/[0-9]/g, "").replaceAll("/", "");
-  const details = await getDetails(category, params.id);
-  const movies = await getOtherData(category, params.id, "movie_credits");
-  const shows = await getOtherData(category, params.id, "tv_credits");
-  const images = await getOtherData(category, params.id, "images");
+export async function getStaticPaths() {
+  const res = await getData("person", "popular");
+  const persons = res.data.results;
+
+  const paths = persons.map((person) => ({
+    params: {
+      id: person.id.toString(),
+    },
+  }));
+
   return {
-    details: details.data,
-    movies: movies.data.cast,
-    shows: shows.data.cast,
-    images: images.data.profiles,
+    paths,
+    fallback: true,
   };
-};
+}
 
-function PersonDetails() {
-  const data = useLoaderData();
+export async function getStaticProps({ params }) {
+  const details = await getDetails("person", params.id);
+  const movies = await getOtherData("person", params.id, "movie_credits");
+  const shows = await getOtherData("person", params.id, "tv_credits");
+  const images = await getOtherData("person", params.id, "images");
 
+  return {
+    props: {
+      details: details.data,
+      movies: movies.data.cast,
+      shows: shows.data.cast,
+      images: images.data.profiles,
+    },
+  };
+}
+
+function PersonInfo(props) {
   return (
     <Layout>
       <ErrorBoundary>
-        <PersonDetails data={data} />
+        <PersonDetails data={props} />
       </ErrorBoundary>
     </Layout>
   );
 }
 
-export default PersonDetails;
+export default PersonInfo;

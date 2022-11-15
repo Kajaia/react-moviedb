@@ -20,6 +20,11 @@
       "static/chunks/main.js",
       "static/chunks/pages/index.js"
     ],
+    "/404": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/404.js"
+    ],
     "/_app": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
@@ -30,20 +35,15 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/movie": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/movie.js"
-    ],
     "/person": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
       "static/chunks/pages/person.js"
     ],
-    "/tv": [
+    "/person/[id]": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/tv.js"
+      "static/chunks/pages/person/[id].js"
     ]
   },
   "ampFirstPages": []
