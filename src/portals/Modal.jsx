@@ -11,7 +11,7 @@ function Modal(props) {
           <div className="card-body">
             <div className="d-flex align-items-center justify-content-between">
               <h5 className="fw-bold text-white mb-0">
-                Watch "{props.title}" trailer
+                Watch {props.title} trailer
               </h5>
               <i
                 className="fas fa-times fa-lg text-white cursor-pointer"
