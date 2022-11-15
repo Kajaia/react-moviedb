@@ -2,6 +2,7 @@ import ErrorBoundary from "../../components/others/ErrorBoundary";
 import { getData, getDetails, getOtherData } from "../../services/ApiService";
 import PersonDetails from "../../components/persons/PersonDetails";
 import Layout from "../../components/layout";
+import Head from "next/head";
 
 export async function getStaticPaths() {
   const res = await getData("person", "popular");
@@ -38,6 +39,9 @@ export async function getStaticProps({ params }) {
 function PersonInfo(props) {
   return (
     <Layout>
+      <Head>
+        <title>{props?.details?.name} - MovieDB</title>
+      </Head>
       <ErrorBoundary>
         <PersonDetails data={props} />
       </ErrorBoundary>
