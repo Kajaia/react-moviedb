@@ -1,9 +1,7 @@
-import { createPortal } from "react-dom";
-
 function Modal(props) {
   if (!props.isOpen) return null;
 
-  return createPortal(
+  return (
     <>
       <div className="overlay"></div>
       <div className="portal-modal">
@@ -23,8 +21,7 @@ function Modal(props) {
           </div>
         </div>
       </div>
-    </>,
-    document.getElementById("modal")
+    </>
   );
 }
 
