@@ -52,7 +52,7 @@ function MovieDetails({ data }) {
                   <p>{data?.details?.overview}</p>
                 </div>
               )}
-              {data?.videos?.length > 0 && (
+              {data?.videos && (
                 <div className="mt-4">
                   <button
                     onClick={() => setIsOpen(true)}
@@ -74,14 +74,16 @@ function MovieDetails({ data }) {
         close={() => setIsOpen(false)}
         title={data?.details?.title}
       >
-        <iframe
-          width="100%"
-          height="400px"
-          src={`https://www.youtube.com/embed/${data?.videos[0]?.key}`}
-          title={data?.details?.title}
-          frameBorder="0"
-          allowFullScreen
-        ></iframe>
+        {data?.videos && (
+          <iframe
+            width="100%"
+            height="400px"
+            src={`https://www.youtube.com/embed/${data?.videos[0]?.key}`}
+            title={data?.details?.title}
+            frameBorder="0"
+            allowFullScreen
+          ></iframe>
+        )}
       </Modal>
     </>
   );
