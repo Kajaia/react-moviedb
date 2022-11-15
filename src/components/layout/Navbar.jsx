@@ -1,10 +1,10 @@
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 function Navbar() {
   return (
     <nav className="navbar navbar-expand navbar-dark bg-blue shadow-sm">
       <div className="container py-1">
-        <Link to="/" className="navbar-brand">
+        <Link href="/" className="navbar-brand">
           MovieDB
         </Link>
         <button
@@ -21,17 +21,17 @@ function Navbar() {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav ms-auto mb-lg-0">
             <li className="nav-item">
-              <Link to="/movie" className="nav-link">
+              <Link href="/movie" className="nav-link">
                 Movies
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/tv" className="nav-link">
+              <Link href="/tv" className="nav-link">
                 TV Shows
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/person" className="nav-link">
+              <Link href="/person" className="nav-link">
                 People
               </Link>
             </li>

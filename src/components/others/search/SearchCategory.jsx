@@ -1,10 +1,10 @@
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 function SearchCategory(props) {
   return (
     <div className="col-12">
       <Link
-        to={`/${props.category}/${props.data.id}`}
+        href={`/${props.category}/${props.data.id}`}
         className="text-dark text-decoration-none"
       >
         <i

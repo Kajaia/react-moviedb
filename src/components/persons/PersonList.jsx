@@ -1,9 +1,8 @@
-import { Link } from "react-router-dom";
-import useGetData from "../../hooks/useGetData";
+import Link from "next/link";
 import LoadingSpinner from "../layout/LoadingSpinner";
 
 function PersonList(props) {
-  const persons = useGetData(props.category, props.endpoint);
+  const persons = props.data;
 
   return (
     <>
@@ -26,7 +25,7 @@ function PersonList(props) {
                   loading="lazy"
                 />
                 <Link
-                  to={`/person/${person.id}`}
+                  href={`/person/${person.id}`}
                   className="stretched-link"
                 ></Link>
                 <div className="mt-2 mx-3">

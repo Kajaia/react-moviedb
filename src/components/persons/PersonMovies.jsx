@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 function PersonMovies(props) {
   return (
@@ -13,7 +13,7 @@ function PersonMovies(props) {
                   {movie.release_date && `${movie.release_date} • `}
                   {movie.first_air_date && `${movie.first_air_date} • `}
                   <Link
-                    to={`/${props.category}/${movie.id}`}
+                    href={`/${props.category}/${movie.id}`}
                     className="fw-bold text-decoration-none text-dark"
                   >
                     {props.category === "movie" ? movie.title : movie.name}

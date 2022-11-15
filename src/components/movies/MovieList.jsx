@@ -1,11 +1,10 @@
 import { format } from "date-fns";
-import { Link } from "react-router-dom";
-import useGetData from "../../hooks/useGetData";
+import Link from "next/link";
 import LoadingSpinner from "../layout/LoadingSpinner";
 import MovieVote from "./MovieVote";
 
 function MovieList(props) {
-  const movies = useGetData(props.category, props.endpoint);
+  const movies = props.data;
 
   return (
     <>
@@ -31,7 +30,7 @@ function MovieList(props) {
                   loading="lazy"
                 />
                 <Link
-                  to={`/${props.category === "movie" ? "movie" : "tv"}/${
+                  href={`/${props.category === "movie" ? "movie" : "tv"}/${
                     movie.id
                   }`}
                   className="stretched-link"

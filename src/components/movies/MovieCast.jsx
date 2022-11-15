@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 function MovieCast({ credits }) {
   return (
@@ -22,7 +22,7 @@ function MovieCast({ credits }) {
                   loading="lazy"
                 />
                 <Link
-                  to={`/person/${credit.id}`}
+                  href={`/person/${credit.id}`}
                   className="stretched-link"
                 ></Link>
                 <div className="mt-2 mx-3">
