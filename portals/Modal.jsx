@@ -8,7 +8,7 @@ function Modal(props) {
         <div className="card rounded-3">
           <div className="card-body">
             <div className="d-flex align-items-center justify-content-between">
-              <h5 className="fw-bold text-white mb-0 text-dark">
+              <h5 className="fw-bold mb-0 text-dark">
                 Watch {props.title} trailer
               </h5>
               <i
