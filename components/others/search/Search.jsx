@@ -26,7 +26,7 @@ function Search() {
     if (query)
       searchData("person", query).then((res) => setPersons(res.data.results));
 
-    return () => setShows([]);
+    return () => setPersons([]);
   }, [query]);
 
   let searchResults;
