@@ -57,6 +57,7 @@ body {
   transform: translate(50%, -50%);
   width: 800px;
   max-width: 90%;
+  background-color: var(--c-blue);
   z-index: 2;
 }
 
